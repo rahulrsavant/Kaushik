@@ -30,11 +30,23 @@ public class TopicSerice {
 
 		for (int i = 0; i < topics.size(); i++) {
 			if (topics.get(i).getId().equals(topic.getId())) {
-				topics.get(i).setName(topic.getName());
-				topics.get(i).setDescription(topic.getDescription());
+				//topics.get(i).setName(topic.getName());
+				//topics.get(i).setDescription(topic.getDescription());
+				
+				topics.set(i, topic);
+				return;
 			}
 		}
 
+	}
+
+	public void deleteTopic(String id) {
+		topics.removeIf(t -> t.getId().contentEquals(id));		
+	}
+
+	public void deleteAllTopic() {
+	topics.clear();
+		
 	}
 
 }
